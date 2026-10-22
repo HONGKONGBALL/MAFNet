@@ -18,6 +18,6 @@ jobs:
       - name: Install CPU PyTorch
         run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
       - name: Install requirements and pytest
-        run: pip install -r requirements.txt pytest
+        run: pip install -r requirements.txt pytest hypothesis
       - name: Run tests
         run: pytest -q

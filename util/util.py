@@ -21,6 +21,11 @@ def visualize(image_name, predictions, weight_name):
         img = Image.fromarray(np.uint8(img))
         img.save('runs/Pred_' + weight_name + '_' + image_name[i] + '.png')
 
+def should_report_fps(n_batches, warmup=5):
+    """True when enough batches remain after the warmup frames to report FPS."""
+    return n_batches > warmup
+
+
 def getScores(conf_matrix):
     if conf_matrix.sum() == 0:
         return 0, 0, 0, 0, 0, 0, 0, 0, 0

@@ -1,8 +1,14 @@
 import numpy as np
+import pytest
 import torch
 from PIL import Image
 
 from util.MF_dataset import MF_dataset
+
+
+def test_mf_dataset_rejects_unknown_split(tmp_path):
+    with pytest.raises(AssertionError, match=r'split must be "train"\|"validation"\|"test"'):
+        MF_dataset(str(tmp_path), "nope")
 
 
 def test_mf_dataset_synthetic(tmp_path):

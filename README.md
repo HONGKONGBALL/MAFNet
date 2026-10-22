@@ -73,7 +73,7 @@ Note: Please change the smoothing factor in the Tensorboard webpage to `0.999`, 
 ```
 $ pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 $ pip install -r requirements.txt
-$ pip install pytest
+$ pip install pytest hypothesis
 $ pytest -q
 ```
 

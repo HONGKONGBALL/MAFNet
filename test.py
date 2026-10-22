@@ -114,7 +114,8 @@ if __name__ == '__main__':
     conf_total_matfile = os.path.join("./runs", 'conf_'+args.weight_name+'.mat')
     savemat(conf_total_matfile,  {'conf': conf_total}) # 'conf' is the variable name when loaded in Matlab
     print ('Average pre :{0:.4f}, recall: {1:.4f}, F_score: {2:.4f}, IoU : {3:.4f}'.format( (pre_b+pre_p)/2*100, (recall_b+recall_p)/2*100, (F_score_b+F_score_p)/2*100, (iou_b+iou_p)/2*100))
-    print('\n* the average time cost per frame (with batch size %d): %.2f ms, namely, the inference speed is %.2f fps' %(batch_size, ave_time_cost*1000/(len(test_loader)-5), 1.0/(ave_time_cost/(len(test_loader)-5)))) # ignore the first 10 frames
+    if len(test_loader) > 5:
+        print('\n* the average time cost per frame (with batch size %d): %.2f ms, namely, the inference speed is %.2f fps' %(batch_size, ave_time_cost*1000/(len(test_loader)-5), 1.0/(ave_time_cost/(len(test_loader)-5)))) # ignore the first 10 frames
     print('\n###########################################################################')
 
    
